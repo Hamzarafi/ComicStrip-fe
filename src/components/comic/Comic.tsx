@@ -39,30 +39,35 @@ const Comic = ({ comicNumber }: propTypes) => {
   if (!comic || loading) return <Loading />;
 
   return (
-    <Container>
-      <StyledTypography variant="h3">{comic.title}</StyledTypography>
-      <Grid item xs={12}>
+    <Container maxWidth="md" sx={{ padding: '20px' }}>
+      <StyledTypography fontFamily={"fantasy"} color="#034b5c" variant="h3" sx={{ fontWeight: 600 }}>{comic.title}</StyledTypography>
+      <Container maxWidth="md" sx={{ textAlign: 'center' }}>
         <Box
           component="img"
           src={comic.img}
           alt={comic.alt}
+          p={1}
           sx={{
-            width: "100%",
-            maxWidth: { xs: "100%", sm: "80%", md: "70%" },
-            height: "auto",
-            margin: "0 auto",
-            display: "block",
+            backgroundColor: '#FFF',
+            width: { xs: '100%', md: 'auto' },
+            maxWidth: '600px',
+            height: 'auto',
+            margin: '0 auto',
+            borderRadius: '8px',
+            boxShadow: '0px 15px 18px rgba(0, 0, 0, 0.3)'
           }}
         />
-      </Grid>
+        <Typography variant="body1" sx={{ marginTop: '16px', color: '#555' }}>
+          {comic.alt}
+        </Typography>
+      </Container>
       <Box display="flex" flexDirection={"column"} alignItems={"flex-end"}>
-        <Typography variant="body2">Views: {comic.views}</Typography>
-        <Typography variant="caption">
-          {comic.day}/{comic.month}/{comic.year}
+        <Typography variant="body2" gutterBottom>Views: {comic.views}</Typography>
+        <Typography variant="caption" sx={{ color: '#888' }}>
+          Published on {comic.day}/{comic.month}/{comic.year}
         </Typography>
       </Box>
-      <Typography variant="body2">Page: {comic.num}</Typography>
-
+    
       {comic.transcript && (
         <Box mt={3}>
           <Typography variant="h5">Transcript:</Typography>
