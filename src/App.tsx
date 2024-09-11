@@ -37,4 +37,9 @@ function App() {
   );
 }
 
+const MainContainer = styled.div`
+  background: linear-gradient(36deg, rgba(215,215,215,1) 0%, rgba(244,244,244,1) 47%, rgba(96,132,140,1) 100%);
+  min-height: 100vh;
+`;
+
 export default App;
