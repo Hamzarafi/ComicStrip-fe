@@ -1,2 +1,1 @@
-// export const backendURL = "https://comicstrip-be-1.onrender.com";
-export const backendURL = process.env.COMIC_API_URL || "http://localhost:8000";
+export const backendURL = process.env.NODE_ENV === 'production' ? "https://comicstrip-be-1.onrender.com" : "http://localhost:8000";
